@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الملف الشخصي</title>
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+  <div class="profile-container">
+    <div class="profile-card">
+      <label for="upload-pic" class="profile-pic-label">
+        <img src="assets/images/user-default.png" alt="User" id="profile-pic" class="profile-pic">
+      </label>
+      <input type="file" id="upload-pic" accept="image/*" style="display: none;">
+
+      <h2 id="profile-name">اسم المستخدم</h2>
+      <input type="text" id="edit-name" class="edit-field" style="display:none;" placeholder="الاسم">
+
+      <p id="profile-email">example@email.com</p>
+      <input type="email" id="edit-email" class="edit-field" style="display:none;" placeholder="البريد الإلكتروني">
+
+      <hr class="divider">
+
+      <h3 class="achievements-title">الإنجازات والأوسمة 🏅</h3>
+      <div class="achievements-section">
+        <p>عدد الاختبارات المنجزة: <span id="completed-quizzes">0</span></p>
+        <p>أعلى نتيجة: <span id="highest-score">0%</span></p>
+
+        <div class="badges-container" id="badges-container">
+          <!-- الأوسمة تظهر هنا تلقائيًا -->
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="edit-btn">تعديل المعلومات</button>
+        <button id="save-btn" style="display:none;">حفظ التغييرات</button>
+        <button id="logout-btn">تسجيل الخروج</button>
+      </div>
+
+      <a href="index.html" class="back-link">العودة إلى الرئيسية</a>
+    </div>
+  </div>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>

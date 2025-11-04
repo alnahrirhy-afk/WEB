@@ -1,0 +1,170 @@
+:root{
+  /* Core oriental palette */
+  --bg: #f5efe0; /* light beige */
+  --paper: #f8f4ec; /* creamy paper */
+  --accent: #b68c45; /* warm gold */
+  --accent-dark: #8c6b2f;
+  --text: #3a2d16; /* dark brown */
+  --muted: #9b8b74; /* muted brown */
+  --olive: #7a8b4a; /* olive for subtle indicators */
+  --card-bg: #fff8e9;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(58,45,22,0.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  background-color:var(--bg);
+  /* subtle arabesque pattern */
+  background-image: url('../assets/pattern.svg');
+  background-repeat: repeat;
+  background-size: 480px 360px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  transition:background-color .25s ease,color .2s ease;
+}
+.container{max-width:1200px;margin:0 auto;padding:1rem}
+
+/* Navbar */
+.site-header{position:sticky;top:0;z-index:60}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
+.logo{font-weight:700;font-size:1.125rem}
+.logo-accent{color:var(--accent);margin-left:6px}
+.nav-links{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--text);text-decoration:none;padding:0.4rem 0.6rem;border-radius:8px;transition:all .18s}
+.nav-links a:hover{background:rgba(58,45,22,0.04)}
+.nav-toggle{display:none;background:none;border:0;font-size:1.25rem}
+
+/* Hero */
+.hero{padding:3.5rem 0;background-image:linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.2));}
+.hero-inner{display:flex;gap:2rem;align-items:center}
+.hero-copy{flex:1}
+.hero h1{font-size:2rem;margin:0 0 0.5rem;font-weight:700}
+.subtitle{color:#444;margin-top:0.25rem}
+.hero-ctas{margin-top:1rem;display:flex;gap:0.75rem}
+.btn{padding:0.6rem 1rem;border-radius:10px;border:0;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-dark));color:white;box-shadow:var(--shadow);transform:translateZ(0);transition:transform .16s, box-shadow .16s}
+.btn.primary:hover{transform:scale(1.03);filter:brightness(.98)}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
+.hero-visual{width:320px;height:220px;background:linear-gradient(135deg,var(--sky),var(--paper));border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(34,34,34,0.06)}
+.map-illustration{font-family:'Amiri',serif;color:rgba(0,0,0,0.35)}
+.hero-map{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+/* Modal styles */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:120}
+.modal[hidden]{display:none}
+.modal-panel{background:white;padding:1rem;border-radius:12px;max-width:720px;width:90%;box-shadow:0 16px 48px rgba(34,34,34,0.2)}
+.modal-close{position:absolute;right:1rem;top:1rem;background:none;border:0;font-size:1.1rem;cursor:pointer}
+
+/* make pattern subtler on small screens */
+@media (max-width:900px){
+  body{background-size:220px 160px, auto}
+}
+
+/* Cards */
+.intro-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.card{background:var(--card-bg);padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .18s, box-shadow .18s}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(34,34,34,0.08)}
+.card-icon{font-size:1.6rem;margin-bottom:0.4rem}
+.card h3{margin:0 0 0.5rem}
+.card p{margin:0 0 0.75rem;color:#555}
+.card-link{text-decoration:none;color:var(--emerald);font-weight:600}
+
+/* News ticker */
+.news-ticker{background:linear-gradient(90deg,rgba(122,139,74,0.04),rgba(182,140,69,0.03));padding:0.6rem 0;margin-top:2rem}
+.ticker-label{display:inline-block;font-weight:700;margin-right:0.5rem}
+.ticker-wrap{overflow:hidden}
+.ticker{display:inline-block;white-space:nowrap;animation:scroll 18s linear infinite}
+@keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+/* Footer */
+.site-footer{padding:1.25rem 0;margin-top:3rem;background:transparent}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-links a{margin-left:0.75rem;text-decoration:none;color:#666}
+
+/* Responsive */
+@media (max-width:900px){
+  .intro-cards{grid-template-columns:repeat(2,1fr)}
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .hero-visual{width:100%;height:180px}
+}
+@media (max-width:600px){
+  .nav-links{display:none;position:absolute;inset:auto 0 0 0;background:var(--paper);padding:1rem;flex-direction:column}
+  .nav-toggle{display:block}
+  .intro-cards{grid-template-columns:1fr}
+  .hero h1{font-size:1.5rem}
+}
+
+/* Accessibility focus */
+a:focus,button:focus{outline:3px solid rgba(31,138,112,0.12);outline-offset:3px}
+
+/* ------ Oriental theme overrides per design request ----- */
+/* Fonts: Arabic + Latin */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&family=Amiri&family=Scheherazade+New&family=Poppins:wght@300;400;600&display=swap');
+
+/* default text font will be controlled by language-specific classes */
+body.lang-ar { font-family: 'Amiri', 'Scheherazade New', serif; }
+body.lang-it { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+body { color:var(--text); }
+
+/* Header with golden gradient */
+.site-header{
+  background: linear-gradient(90deg,var(--accent),var(--accent-dark)) !important;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.22);
+}
+.navbar{padding:10px 20px}
+
+/* Profile image in header (single visible image) */
+#avatarThumb, .profile-img {
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit:cover;
+}
+#avatarThumb:hover, .profile-img:hover{ transform: scale(1.1); box-shadow: 0 0 15px rgba(182,140,69,0.7); }
+
+/* Language selector: style both ids used in project */
+#language-selector, #language-select {
+  background-color: #fff8e1;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--text);
+  font-weight: 600;
+  appearance: none;
+  cursor: pointer;
+}
+#language-selector:hover, #language-select:hover { background-color: #f9f1d3; }
+
+/* Content background warmer */
+.main-content, .container, .card, .hero-visual, .quiz-container {
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(58,45,22,0.04);
+}
+
+/* ensure header elements align nicely */
+.header-actions{display:flex;align-items:center;gap:12px}
+
+/* Force nav links to be visible on golden header */
+.site-header .nav-links a { color: #fff !important; }
+.site-header .nav-links a:hover { background: rgba(255,255,255,0.06) !important; }
+
+/* Ensure header sits above other content */
+.site-header { position: sticky; top:0; z-index: 120; }
+.language-dropdown, #language-select, #language-selector { position: relative; z-index: 130; }
+
+/* Defensive rules to prevent external CSS from showing white backgrounds */
+.nav, .site-header, .dropdown-menu, .avatar-menu { background: transparent !important; color: inherit !important; }
+.dropdown-menu, .avatar-menu { background: var(--paper) !important; border: 1px solid rgba(0,0,0,0.04) !important; box-shadow: 0 8px 20px rgba(58,45,22,0.06) !important; }
+
+/* small decorative arabesque overlay (very subtle) */
+.arabesque-overlay{position:fixed;inset:0;pointer-events:none;opacity:0.03;background-image:url('../assets/pattern_high.svg');background-repeat:repeat;background-size:600px 400px;z-index:0}
+

@@ -1,0 +1,72 @@
+[
+  {
+    "id":"ottoman",
+    "name":"Impero Ottomano",
+    "capital":"Costantinopoli (Istanbul)",
+    "period":"1299–1924",
+    "founder":"Osman I",
+    "achievements":["Estensione su tre continenti","Istituzioni amministrative avanzate","Realizzazioni architettoniche come moschee e palazzi"],
+    "description":"Fondato da Osman I, l'impero ottomano si estese su tre continenti ed è stato una delle potenze più influenti della storia islamica.",
+    "image":"assets/states/ottoman-empire.svg"
+  },
+  {
+    "id":"umayyad",
+    "name":"Califfato Omayyade",
+    "capital":"Damasco",
+    "period":"661–750",
+    "founder":"Muʿāwiya ibn Abī Sufyān",
+    "achievements":["Espansione territoriale","Fondazione della prima marina islamica","Costruzione di monumenti come la Cupola della Roccia"],
+    "description":"Il califfato Omayyade fu la prima dinastia ereditaria dell'Islam e si distinse per la sua rapida espansione territoriale.",
+    "image":"assets/states/umayyad.svg"
+  },
+  {
+    "id":"abbasid",
+    "name":"Califfato Abbaside",
+    "capital":"Baghdad",
+    "period":"750–1258",
+    "founder":"Gli Abbasidi",
+    "achievements":["Rinascita scientifica e culturale","Fioritura delle traduzioni e delle scienze","Baghdad come centro culturale"],
+    "description":"L'epoca abbaside è nota per un grande sviluppo culturale, scientifico e per la fioritura delle arti e delle lettere.",
+    "image":"assets/states/abbasid.svg"
+  },
+  {
+    "id":"fatimid",
+    "name":"Dinastia Fatimide",
+    "capital":"Il Cairo",
+    "period":"909–1171",
+    "founder":"Abu Abdallah al-Mahdi",
+    "achievements":["Fioritura commerciale e culturale","Fondazione di istituzioni religiose e scientifiche","Influenza nel Nord Africa"],
+    "description":"I Fatimidi stabilirono un potente stato nell'Africa settentrionale e in Egitto con grande influenza culturale e religiosa.",
+    "image":"assets/states/fatimid.svg"
+  },
+  {
+    "id":"ayyubid",
+    "name":"Dinastia Ayyubide",
+    "capital":"Damasco",
+    "period":"1171–1250",
+    "founder":"Salah ad-Din (Saladino)",
+    "achievements":["Riconquista di territori e lotta contro le Crociate","Riforme militari e amministrative","Rinascita urbanistica e militare"],
+    "description":"L'era di Saladino fu caratterizzata da riforme militari e amministrative e da una forte opposizione alle Crociate.",
+    "image":"assets/states/ayyubid.svg"
+  },
+  {
+    "id":"mamluk",
+    "name":"Mamelucchi",
+    "capital":"Il Cairo",
+    "period":"1250–1517",
+    "founder":"Sultani mamelucchi",
+    "achievements":["Sconfitta dei Mongoli e difesa dalle Crociate","Fioritura architettonica al Cairo","Conservazione del patrimonio islamico"],
+    "description":"I Mamelucchi governarono l'Egitto e la Siria, respingendo minacce esterne e promuovendo l'architettura e la cultura.",
+    "image":"assets/states/mamluk.svg"
+  },
+  {
+    "id":"andalus",
+    "name":"Al-Andalus",
+    "capital":"Cordoba / Granada",
+    "period":"711–1492",
+    "founder":"Le conquiste islamiche in Iberia",
+    "achievements":["Fioritura scientifica e culturale a Cordova","Contributi alla medicina e alla filosofia","Lungo periodo di convivenza culturale"],
+    "description":"Al-Andalus fu un centro di grande importanza per la scienza e la civiltà islamica nell'Occidente mediterraneo.",
+    "image":"assets/states/andalus.svg"
+  }
+]
