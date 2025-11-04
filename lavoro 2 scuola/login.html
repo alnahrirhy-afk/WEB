@@ -1,46 +1,0 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تسجيل الدخول إلى موقع التاريخ الإسلامي</title>
-  <link rel="stylesheet" href="assets/css/site-theme.css">
-  <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-  <main class="login-page">
-    <div class="login-card" role="region" aria-labelledby="loginTitle">
-  <h1 id="loginTitle" data-translate="login" data-key="login">تسجيل الدخول إلى موقع التاريخ الإسلامي</h1>
-  <p class="lead" id="loginLead" data-key="welcome">أدخل اسم المستخدم وكلمة المرور للمتابعة</p>
-
-      <form id="loginForm" novalidate>
-  <label for="username" id="usernameLabel" data-translate="username" data-key="username">اسم المستخدم</label>
-        <input type="text" id="username" name="username" placeholder="مثال: أحمد" autocomplete="username">
-
-  <label for="password" id="passwordLabel" data-translate="password" data-key="password">كلمة المرور</label>
-        <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
-
-  <label for="avatar" id="avatarLabel">صورة الملف الشخصي (اختياري)</label>
-        <input type="file" id="avatar" name="avatar" accept="image/*">
-
-              <label for="language-select" id="languageLabel" data-key="language_label">اللغة</label>
-              <select id="language-select" aria-label="اختيار اللغة">
-                <option value="ar">العربية 🇸🇦</option>
-                <option value="it">Italiano 🇮🇹</option>
-              </select>
-
-        <div class="actions">
-          <button type="submit" class="btn-login" id="btnLogin" data-key="submit">تسجيل الدخول</button>
-        </div>
-
-        <div id="warning" class="warning" aria-live="polite" hidden></div>
-      </form>
-
-      <p class="small" id="privacyNote">بزيارة هذا الموقع، سيتم حفظ اسم المستخدم وكلمة المرور محليًا على متصفحك فقط (localStorage).</p>
-    </div>
-  </main>
-
-  <script src="js/i18n.js"></script>
-  <script src="assets/js/login-impl.js"></script>
-</body>
-</html>
