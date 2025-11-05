@@ -1,289 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار نهائي - أزرار المزيد</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/countries.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <style>
-        .test-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .test-instructions {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border-right: 4px solid #28a745;
-        }
-        .debug-info {
-            background: #e9ecef;
-            padding: 1rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-    <div class="test-header">
-        <h1>🧪 اختبار نهائي - أزرار المزيد</h1>
-        <p>تأكد من عمل جميع أزرار "المزيد" في قسم الدول</p>
-    </div>
-
-    <div class="container">
-        <div class="test-instructions">
-            <h3>📋 تعليمات الاختبار:</h3>
-            <ol>
-                <li>اضغط على أي زر "المزيد" أدناه</li>
-                <li>تأكد من ظهور نافذة منبثقة</li>
-                <li>تأكد من عرض المعلومات بشكل صحيح</li>
-                <li>جرب التنقل بين التابات</li>
-                <li>جرب إغلاق النافذة</li>
-            </ol>
-        </div>
-
-        <div class="countries-grid">
-            <!-- الدولة العثمانية -->
-            <article class="country-card" data-country="ottoman">
-                <div class="card-media">
-                    <img src="assets/states/ottoman-empire.svg" alt="شعار الدولة العثمانية" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <h3>الدولة العثمانية</h3>
-                    <p>1299 - 1924</p>
-                    <button class="btn ghost" data-modal="ottoman-details">المزيد</button>
-                </div>
-            </article>
-
-            <!-- الدولة الأموية -->
-            <article class="country-card" data-country="umayyad">
-                <div class="card-media">
-                    <img src="assets/states/umayyad.svg" alt="رمز الدولة الأموية" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <h3>الدولة الأموية</h3>
-                    <p>661 - 750</p>
-                    <button class="btn ghost" data-modal="umayyad-details">المزيد</button>
-                </div>
-            </article>
-
-            <!-- الدولة العباسية -->
-            <article class="country-card" data-country="abbasid">
-                <div class="card-media">
-                    <img src="assets/states/abbasid.svg" alt="رمز الدولة العباسية" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <h3>الدولة العباسية</h3>
-                    <p>750 - 1258</p>
-                    <button class="btn ghost" data-modal="abbasid-details">المزيد</button>
-                </div>
-            </article>
-        </div>
-
-        <div class="debug-info">
-            <h4>🔍 معلومات التشخيص:</h4>
-            <p>افتح وحدة التحكم (F12) لرؤية رسائل التشخيص</p>
-            <p>يجب أن ترى رسائل مثل: "DOM loaded, initializing modals..." و "Button clicked, opening modal..."</p>
-        </div>
-    </div>
-
-    <!-- Modal: تفاصيل الدولة العثمانية -->
-    <div id="ottoman-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-ottoman" hidden>
-        <div class="modal-panel">
-            <button class="modal-close" aria-label="إغلاق">✕</button>
-            <article class="country-details">
-                <header>
-                    <h2 id="modal-title-ottoman">الدولة العثمانية</h2>
-                    <p class="period">1299 - 1924</p>
-                </header>
-
-                <div class="content-tabs">
-                    <nav class="tabs-nav" role="tablist">
-                        <button role="tab" aria-selected="true" aria-controls="ottoman-about">نبذة تاريخية</button>
-                        <button role="tab" aria-selected="false" aria-controls="ottoman-timeline">الخط الزمني</button>
-                    </nav>
-
-                    <div class="tab-content">
-                        <div id="ottoman-about" role="tabpanel" class="tab-panel">
-                            <div class="country-info">
-                                <h3>نبذة تاريخية</h3>
-                                <p>تأسست الدولة العثمانية عام 1299 على يد عثمان الأول، وامتدت أراضيها في ثلاث قارات حتى عام 1924. عُرفت بقوتها العسكرية وإنجازاتها المعمارية والثقافية.</p>
-                                
-                                <div class="info-grid">
-                                    <div class="info-item">
-                                        <h4>العاصمة</h4>
-                                        <p>إسطنبول (القسطنطينية سابقاً)</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>فترة الحكم</h4>
-                                        <p>1299 - 1924</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>مدة الحكم</h4>
-                                        <p>625 سنة</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>أشهر الحكام</h4>
-                                        <p>محمد الفاتح، سليمان القانوني</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="ottoman-timeline" role="tabpanel" class="tab-panel" hidden>
-                            <div class="timeline">
-                                <div class="timeline-event">
-                                    <time>1299</time>
-                                    <h4>تأسيس الدولة</h4>
-                                    <p>تأسيس الدولة العثمانية على يد عثمان الأول</p>
-                                </div>
-                                <div class="timeline-event">
-                                    <time>1453</time>
-                                    <h4>فتح القسطنطينية</h4>
-                                    <p>فتح محمد الفاتح للقسطنطينية وتحويلها إلى إسطنبول</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <!-- Modal: تفاصيل الدولة الأموية -->
-    <div id="umayyad-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-umayyad" hidden>
-        <div class="modal-panel">
-            <button class="modal-close" aria-label="إغلاق">✕</button>
-            <article class="country-details">
-                <header>
-                    <h2 id="modal-title-umayyad">الدولة الأموية</h2>
-                    <p class="period">661 - 750</p>
-                </header>
-
-                <div class="content-tabs">
-                    <nav class="tabs-nav" role="tablist">
-                        <button role="tab" aria-selected="true" aria-controls="umayyad-about">نبذة تاريخية</button>
-                        <button role="tab" aria-selected="false" aria-controls="umayyad-timeline">الخط الزمني</button>
-                    </nav>
-
-                    <div class="tab-content">
-                        <div id="umayyad-about" role="tabpanel" class="tab-panel">
-                            <div class="country-info">
-                                <h3>عصر الفتوحات والحضارة</h3>
-                                <p>أول خلافة وراثية في الإسلام، أسسها معاوية بن أبي سفيان عام 661م. امتد نفوذها من الأندلس غرباً إلى حدود الصين شرقاً، وشكلت أكبر دولة في العالم آنذاك.</p>
-                                
-                                <div class="info-grid">
-                                    <div class="info-item">
-                                        <h4>العاصمة</h4>
-                                        <p>دمشق</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>فترة الحكم</h4>
-                                        <p>661 - 750</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>مدة الحكم</h4>
-                                        <p>89 سنة</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>أشهر الحكام</h4>
-                                        <p>معاوية، عبد الملك، الوليد</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="umayyad-timeline" role="tabpanel" class="tab-panel" hidden>
-                            <div class="timeline">
-                                <div class="timeline-event">
-                                    <time>661</time>
-                                    <h4>تأسيس الدولة</h4>
-                                    <p>تولي معاوية بن أبي سفيان الخلافة في دمشق</p>
-                                </div>
-                                <div class="timeline-event">
-                                    <time>750</time>
-                                    <h4>نهاية الدولة</h4>
-                                    <p>سقوط دمشق وقيام الدولة العباسية</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <!-- Modal: تفاصيل الدولة العباسية -->
-    <div id="abbasid-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-abbasid" hidden>
-        <div class="modal-panel">
-            <button class="modal-close" aria-label="إغلاق">✕</button>
-            <article class="country-details">
-                <header>
-                    <h2 id="modal-title-abbasid">الدولة العباسية</h2>
-                    <p class="period">750 - 1258</p>
-                </header>
-
-                <div class="content-tabs">
-                    <nav class="tabs-nav" role="tablist">
-                        <button role="tab" aria-selected="true" aria-controls="abbasid-about">نبذة تاريخية</button>
-                        <button role="tab" aria-selected="false" aria-controls="abbasid-timeline">الخط الزمني</button>
-                    </nav>
-
-                    <div class="tab-content">
-                        <div id="abbasid-about" role="tabpanel" class="tab-panel">
-                            <div class="country-info">
-                                <h3>العصر الذهبي للحضارة الإسلامية</h3>
-                                <p>عصر ذهبي للحضارة الإسلامية، تميز بازدهار العلوم والفنون والترجمة. بلغت أوج قوتها في عهد هارون الرشيد والمأمون. أسست بغداد كعاصمة وأصبحت مركزاً للثقافة العالمية.</p>
-                                
-                                <div class="info-grid">
-                                    <div class="info-item">
-                                        <h4>العاصمة</h4>
-                                        <p>بغداد</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>فترة الحكم</h4>
-                                        <p>750 - 1258</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>مدة الحكم</h4>
-                                        <p>508 سنة</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <h4>أشهر الحكام</h4>
-                                        <p>هارون الرشيد، المأمون، المعتصم</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="abbasid-timeline" role="tabpanel" class="tab-panel" hidden>
-                            <div class="timeline">
-                                <div class="timeline-event">
-                                    <time>750</time>
-                                    <h4>تأسيس الدولة</h4>
-                                    <p>قيام الدولة العباسية بقيادة أبو العباس السفاح</p>
-                                </div>
-                                <div class="timeline-event">
-                                    <time>1258</time>
-                                    <h4>سقوط بغداد</h4>
-                                    <p>نهاية الخلافة العباسية على يد المغول</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
