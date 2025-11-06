@@ -1,8 +1,0 @@
-# Prevent indexing of admin and hidden endpoints
-User-agent: *
-Disallow: /admin
-Disallow: /hidden-admin
-Disallow: /hidden-admin-fallback
-Disallow: /api/admin
-Disallow: /js/admin.js
-Sitemap: 
