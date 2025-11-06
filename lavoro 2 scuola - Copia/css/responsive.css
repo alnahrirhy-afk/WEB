@@ -1,0 +1,148 @@
+/* responsive.css - Add responsive behaviour without changing existing HTML/JS
+   Mobile / Tablet / Desktop breakpoints + helpful utility rules
+*/
+
+:root{
+  --container-padding: 1rem;
+  --card-gap: 1rem;
+}
+
+/* Make images and media flexible */
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure cards and common components don't overflow */
+.card, .country-card, .feature-card, .profile-card, .modal-panel {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Small devices (mobile) */
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+  body { padding: 0 var(--container-padding); }
+
+  header .navbar, .site-header, nav.navbar {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .nav-links { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; padding: 0; }
+
+  .hero-inner { flex-direction: column; gap: 1rem; }
+
+  .hero-copy, .hero-visual { width: 100%; }
+
+  .countries-grid, .rulers-grid, .feature-grid {
+    display: grid; grid-template-columns: 1fr; gap: var(--card-gap);
+  }
+
+  .card, .country-card, .feature-card, .profile-card {
+    width: 100%; margin: 0 0 1rem 0; padding: 1rem;
+  }
+
+  .profile-icon, #profilePic { width: 48px; height:48px; }
+
+  button, .btn, input, select, textarea { width: 100%; font-size: 1rem; }
+
+  .hero-map { width: 100%; height: auto; }
+}
+
+/* Tablet devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html { font-size: 15px; }
+  body { padding: 0 calc(var(--container-padding) * 1.5); }
+
+  .countries-grid, .rulers-grid, .feature-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--card-gap);
+  }
+
+  .hero-inner { gap: 1.25rem; }
+
+  h1, h2 { font-size: 1.5rem; }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  :root { --container-padding: 2rem; }
+  body { padding: 0 var(--container-padding); }
+
+  .countries-grid, .rulers-grid, .feature-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--card-gap) * 1.5);
+  }
+
+  .card, .country-card { width: 100%; }
+}
+
+/* Minor helpers */
+.container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1rem; }
+
+/* Make modal panels responsive */
+.modal-panel { max-width: calc(100% - 2rem); margin: 1rem; }
+
+/* Buttons that are full-width on mobile keep their natural size on larger screens */
+@media (min-width: 769px) {
+  button.w-full, .w-full { width: auto; }
+}
+
+/* === Additional robust fixes to prevent horizontal overflow and handle sidebar === */
+/* Basic responsive fixes from user spec */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* prevent horizontal scroll from rogue elements */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* make images and svgs flexible */
+img, svg, iframe, video { max-width: 100%; height: auto; display: block; }
+
+/* common container */
+.container, .main-content, .content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* card / country card responsive */
+.card, .country-card, .profile-card {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+/* responsive grid rows */
+.row { display: flex; flex-wrap: wrap; gap: 16px; }
+.col { flex: 1 1 300px; min-width: 240px; }
+
+/* fallback for long words/texts */
+p, .text, .card * { word-break: break-word; overflow-wrap: break-word; }
+
+/* make buttons/inputs full width on small screens and adjust header */
+@media (max-width: 768px) {
+  button, input, select, textarea { width: 100%; box-sizing: border-box; }
+  header, .nav, .top-bar { flex-direction: column; align-items: stretch; }
+  /* hide large sidebar on mobile (will be controlled by JS toggle) */
+  .sidebar { position: fixed; left: 0; top: 0; height: 100vh; width: 280px; transform: translateX(-110%); transition: transform .32s ease; z-index: 999; background: inherit; }
+  .sidebar.open { transform: translateX(0); }
+  /* push main content when sidebar open (optional) */
+  .sidebar-opened .main-content { transform: translateX(280px); transition: transform .32s ease; }
+
+  /* reduce padding and font sizes */
+  .container { padding-left: 8px; padding-right: 8px; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.2rem; }
+}
+
+/* smaller mobile tweaks */
+@media (max-width: 420px) {
+  .card { padding: 12px; }
+  .profile-icon { width:44px; height:44px; }
+}
+
