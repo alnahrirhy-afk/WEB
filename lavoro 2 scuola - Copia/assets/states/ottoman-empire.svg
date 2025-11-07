@@ -1,0 +1,12 @@
+// SVG شعار الدولة العثمانية مبسط
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <defs>
+    <pattern id="tughra" patternUnits="userSpaceOnUse" width="30" height="30">
+      <path d="M15,5 C20,10 25,15 15,25 M5,15 C10,20 15,25 25,15" stroke="#B58B2E" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="300" height="200" fill="#F4E9D7"/>
+  <path d="M150,50 C200,80 220,120 180,150 C140,180 120,140 150,120 C180,100 160,80 150,50" 
+        fill="none" stroke="#B58B2E" stroke-width="3"/>
+  <circle cx="150" cy="100" r="40" fill="url(#tughra)" stroke="#B58B2E"/>
+</svg>

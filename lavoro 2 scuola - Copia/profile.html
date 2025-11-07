@@ -1,0 +1,110 @@
+</!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>الملف الشخصي - تاريخ الحضارات</title>
+  <!-- Arabic elegant font -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg: #f8f4ec; --gold:#b58b47; --gold-dark:#a67c45; --text:#3e2c1c }
+    html,body{height:100%;margin:0;font-family: 'Amiri', serif;background: var(--bg) url('assets/images/arabesque-pattern.svg') repeat; color:var(--text)}
+
+    /* Wrapper centers the card vertically/horizontally */
+    .profile-wrapper{display:flex;justify-content:center;align-items:center;height:100vh;position:relative}
+
+    .back-btn{position:absolute;top:20px;left:20px;background-color:transparent;color:var(--gold);font-size:18px;font-weight:bold;border:2px solid var(--gold);border-radius:8px;padding:6px 14px;cursor:pointer}
+    .back-btn:hover{background-color:var(--gold);color:white}
+
+    .profile-card{background:rgba(255,255,240,0.9);border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:28px;max-width:520px;width:92%;text-align:center}
+
+    .profile-pic{width:160px;height:160px;border-radius:50%;border:6px solid var(--gold);object-fit:cover;display:block;margin:0 auto 14px;box-shadow:0 8px 20px rgba(62,44,28,0.08)}
+
+    .file-field{margin:12px 0}
+    .text-field input{padding:10px;border-radius:8px;border:1px solid #e3dccc;width:100%;max-width:360px}
+
+    .actions{display:flex;gap:12px;justify-content:center;margin-top:16px}
+    .btn{background-color:var(--gold);color:white;border:none;padding:10px 25px;border-radius:8px;font-weight:bold;cursor:pointer}
+    .btn:hover{background-color:var(--gold-dark)}
+
+    .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+
+    @media (max-width:480px){ .profile-pic{width:120px;height:120px} }
+  </style>
+  <script src="js/checkLogin.js" defer></script>
+</head>
+<body>
+  <div class="profile-wrapper">
+    <button class="back-btn" onclick="goHome()">🏠 الرجوع إلى الصفحة الرئيسية</button>
+
+    <div class="profile-card" role="region" aria-label="تعديل الملف الشخصي">
+      <img id="profileImage" src="assets/images/default-avatar.svg" alt="صورتك" class="profile-pic">
+
+      <div class="file-field">
+        <label for="newImage" style="display:block;margin-bottom:6px;font-weight:bold">تغيير الصورة</label>
+        <input type="file" id="newImage" accept="image/*">
+      </div>
+
+      <div class="text-field">
+        <label for="newName" style="display:block;margin-bottom:6px;font-weight:bold">الاسم</label>
+        <input type="text" id="newName" placeholder="اكتب اسمك الجديد">
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn" class="btn">💾 حفظ التعديلات</button>
+        <button id="logoutBtn" class="btn ghost">🚪 تسجيل الخروج</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goHome(){ window.location.href = 'index.html'; }
+
+    // load existing values
+    document.addEventListener('DOMContentLoaded', function(){
+      const savedImage = localStorage.getItem('userImage');
+      const savedName = localStorage.getItem('userName');
+      const img = document.getElementById('profileImage');
+      const nameEl = document.getElementById('newName');
+      if(savedImage) img.src = savedImage;
+      if(savedName) nameEl.value = savedName;
+    });
+
+    // preview selected image
+    document.getElementById('newImage').addEventListener('change', function(e){
+      const f = e.target.files[0];
+      if(!f) return;
+      if(!f.type.startsWith('image/')) return;
+      const reader = new FileReader();
+      reader.onload = function(ev){ document.getElementById('profileImage').src = ev.target.result; };
+      reader.readAsDataURL(f);
+    });
+
+    // save changes
+    document.getElementById('saveBtn').addEventListener('click', function(){
+      const newName = document.getElementById('newName').value || '';
+      const file = document.getElementById('newImage').files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = function(e){
+          localStorage.setItem('userImage', e.target.result);
+          localStorage.setItem('userName', newName);
+          alert('✅ تم حفظ التعديلات بنجاح');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        localStorage.setItem('userName', newName);
+        alert('✅ تم حفظ التعديلات بنجاح');
+      }
+    });
+
+    // logout
+    document.getElementById('logoutBtn').addEventListener('click', function(){
+      localStorage.clear();
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
+</body>
+</html>

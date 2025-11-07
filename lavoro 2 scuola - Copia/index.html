@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="موقع تفاعلي لتاريخ الدول الإسلامية وحكامها العظام — خرائط، سير، واختبارات تفاعلية." />
+  <title>تاريخ الدول الإسلامية وحكامها العظام</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600&family=Cairo:wght@400;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/countries.css">
+  <link rel="stylesheet" href="css/rulers.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="stylesheet" href="css/book.css">
+    <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/profile-login.css">
+  <script src="js/checkLogin.js" defer></script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="القائمة الرئيسية">
+      <button id="site-logo" class="site-logo" aria-label="شعار الموقع" title="شعار الموقع" style="background:none;border:0;padding:0;cursor:pointer">
+        تاريخ<span class="logo-accent">الحضارات</span>
+      </button>
+      <button class="nav-toggle" aria-label="قائمة" aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
+        <li><a href="#" aria-label="الصفحة الرئيسية">الرئيسية</a></li>
+        <li><a href="#countries" aria-label="الدول الإسلامية">الدول الإسلامية</a></li>
+        <li><a href="#rulers" aria-label="الحكام العظام">الحكام العظام</a></li>
+        <li><a href="#quizzes" aria-label="الاختبارات">الاختبارات</a></li>
+        <li><a href="#book" aria-label="الكتاب التفاعلي">الكتاب</a></li>
+      </ul>
+      <!-- Profile icon: clicking goes directly to profile.html -->
+      <img src="assets/images/default-avatar.svg" id="profilePic" class="profile-icon" alt="بروفايل" onclick="window.location.href='profile.html'" style="width:44px;height:44px;border-radius:50%;border:3px solid #b58b47;object-fit:cover;cursor:pointer;margin-inline-start:1rem">
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1 id="hero-title">مرحبًا بكم في موقع تاريخ الدول الإسلامية وحكامها العظام</h1>
+          <p class="subtitle">اكتشفوا حضارتهم عبر رحلة تفاعلية مليئة بالخرائط، السير، والاختبارات.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#countries">ابدأ رحلتك</a>
+            <button class="btn ghost" id="watchIntro" aria-controls="introModal">شاهد المقدمة</button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="false">
+          <!-- Inline SVG map for better styling and accessibility -->
+          <img src="assets/map_high.svg" alt="خريطة العالم الإسلامي" class="hero-map" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro Modal (video placeholder) -->
+    <div id="introModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="introTitle" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <h3 id="introTitle">مقدمة الموقع</h3>
+        <div class="modal-body">
+          <p>فيديو تعريفي قيد الإعداد — سيتم استبدال هذه المنطقة بمشغّل فيديو (YouTube / MP4) لاحقًا.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="intro-cards container" id="features">
+      <article class="card">
+        <div class="card-icon">🗺️</div>
+        <h3>الدول الإسلامية</h3>
+        <p>تعرف على تاريخ كل دولة وأهم أحداثها عبر خطوط زمنية مرئية.</p>
+        <a class="card-link" href="#countries">استكشف</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">👑</div>
+        <h3>الحكام العظام</h3>
+        <p>سير ذاتية مركزة عن القادة الأكثر تأثيرًا في التاريخ الإسلامي.</p>
+        <a class="card-link" href="#rulers">استكشف</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📝</div>
+        <h3>الاختبارات</h3>
+        <p>اختبر معلوماتك بطريقة تفاعلية وممتعة مع مستويات مختلفة.</p>
+        <a class="card-link" href="#quizzes">ابدأ الاختبار</a>
+      </article>
+    </section>
+
+    <section class="news-ticker">
+      <div class="container">
+        <div class="ticker-label">آخر التحديثات:</div>
+        <div class="ticker-wrap" aria-live="polite">
+          <div class="ticker">تم إضافة مقالة عن الحركة العلمية في الأندلس • تم تحديث صفحة السلطان صلاح الدين</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="countries" id="countries">
+      <div class="container">
+        <header class="section-header">
+          <h2>الدول الإسلامية</h2>
+          <p class="section-intro">استكشفوا تاريخ الدول الإسلامية، أهم الأحداث والمعالم التي شكلت حضارتها.</p>
+        </header>
+
+        <div class="countries-grid">
+          <!-- الدولة العثمانية -->
+          <article class="country-card" data-country="ottoman">
+            <div class="card-media">
+              <img src="assets/states/ottoman-empire.svg" alt="شعار الدولة العثمانية" loading="lazy">
+            </div>
+            <div class="card-content">
+              <h3>الدولة العثمانية</h3>
+              <p>1299 - 1924</p>
+              <button class="btn ghost" data-modal="ottoman-details">المزيد</button>
+            </div>
+          </article>
+
+          <!-- الدولة الأموية -->
+          <article class="country-card" data-country="umayyad">
+            <div class="card-media">
+              <img src="assets/states/umayyad.svg" alt="رمز الدولة الأموية" loading="lazy">
+            </div>
+            <div class="card-content">
+              <h3>الدولة الأموية</h3>
+              <p>661 - 750</p>
+              <button class="btn ghost" data-modal="umayyad-details">المزيد</button>
+            </div>
+          </article>
+
+          <!-- الدولة العباسية -->
+          <article class="country-card" data-country="abbasid">
+            <div class="card-media">
+              <img src="assets/states/abbasid.svg" alt="رمز الدولة العباسية" loading="lazy">
+            </div>
+            <div class="card-content">
+              <h3>الدولة العباسية</h3>
+              <p>750 - 1258</p>
+              <button class="btn ghost" data-modal="abbasid-details">المزيد</button>
+            </div>
+          </article>
+
+          <!-- الدولة الفاطمية -->
+          <article class="country-card" data-country="fatimid">
+            <div class="card-media">
+              <img src="assets/states/fatimid.svg" alt="رمز الدولة الفاطمية" loading="lazy">
+            </div>
+            <div class="card-content">
+              <h3>الدولة الفاطمية</h3>
+              <p>909 - 1171</p>
+              <button class="btn ghost" data-modal="fatimid-details">المزيد</button>
+            </div>
+          </article>
+
+          <!-- الدولة الأيوبية -->
+          <article class="country-card" data-country="ayyubid">
+            <div class="card-media">
+              <img src="assets/states/ayyubid.svg" alt="رمز الدولة الأيوبية" loading="lazy">
+            </div>
+            <div class="card-content">
+              <h3>الدولة الأيوبية</h3>
+              <p>1171 - 1250</p>
+              <button class="btn ghost" data-modal="ayyubid-details">المزيد</button>
+            </div>
+          </article>
+
+          <!-- دولة المماليك -->
+          <article class="country-card" data-country="mamluk">
+            <div class="card-media">
+              <img src="assets/states/mamluk.svg" alt="رمز دولة المماليك" loading="lazy">
+            </div>
+            <div class="card-content">
+              <h3>دولة المماليك</h3>
+              <p>1250 - 1517</p>
+              <button class="btn ghost" data-modal="mamluk-details">المزيد</button>
+            </div>
+          </article>
+
+          <!-- الأندلس -->
+          <article class="country-card" data-country="andalus">
+            <div class="card-media">
+              <img src="assets/states/andalus.svg" alt="رمز الأندلس" loading="lazy">
+            </div>
+            <div class="card-content">
+              <h3>الأندلس</h3>
+              <p>756 - 1492</p>
+              <button class="btn ghost" data-modal="andalus-details">المزيد</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الحكام العظام -->
+    <section class="rulers-section" id="rulers">
+      <div class="container">
+        <header class="rulers-header">
+          <h2>الحكام العظام</h2>
+          <p>تعرفوا على أعظم حكام الدول الإسلامية وإنجازاتهم التي شكلت التاريخ.</p>
+        </header>
+
+        <div class="rulers-grid"></div>
+      </div>
+    </section>
+
+  <!-- قسم الاختبارات (Quiz) -->
+      <section class="quiz-section" id="quizzes">
+        <div class="container">
+          <header class="quiz-header">
+            <h2>اختبر معلوماتك</h2>
+            <p>اختبر معلوماتك عن الدول الإسلامية وحكامها العظام بطريقة تفاعلية وممتعة.</p>
+          </header>
+
+          <div class="quiz-container" role="application" aria-labelledby="quiz-title">
+            <!-- المحتوى يتم إنشاؤه ديناميكياً عبر js -->
+            <noscript>
+              <div style="padding:1rem;background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+                <p>يُرجى تفعيل جافاسكربت لبدء الاختبار.</p>
+              </div>
+            </noscript>
+          </div>
+        </div>
+      </section>
+
+      <!-- قسم الكتاب التفاعلي (Interactive Book) -->
+      <section class="book-section" id="book">
+        <!-- المحتوى يتم إنشاؤه ديناميكياً عبر js -->
+      </section>
+
+      <!-- Modal: تفاصيل الدولة العثمانية -->
+    <div id="ottoman-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-ottoman" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <article class="country-details">
+          <header>
+            <h2 id="modal-title-ottoman">الدولة العثمانية</h2>
+            <p class="period">1299 - 1924</p>
+          </header>
+
+          <div class="content-tabs">
+            <nav class="tabs-nav" role="tablist">
+              <button role="tab" aria-selected="true" aria-controls="ottoman-about">نبذة تاريخية</button>
+              <button role="tab" aria-selected="false" aria-controls="ottoman-timeline">الخط الزمني</button>
+              <button role="tab" aria-selected="false" aria-controls="ottoman-gallery">معرض الصور</button>
+            </nav>
+
+            <div class="tab-content">
+              <!-- نبذة تاريخية -->
+              <div id="ottoman-about" role="tabpanel" class="tab-panel">
+                <div class="country-info">
+                  <h3>نبذة تاريخية</h3>
+                  <p>تأسست الدولة العثمانية عام 1299 على يد عثمان الأول، وامتدت أراضيها في ثلاث قارات حتى عام 1924. عُرفت بقوتها العسكرية وإنجازاتها المعمارية والثقافية.</p>
+                  
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <h4>العاصمة</h4>
+                      <p>إسطنبول (القسطنطينية سابقاً)</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>فترة الحكم</h4>
+                      <p>1299 - 1924</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>مدة الحكم</h4>
+                      <p>625 سنة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>أشهر الحكام</h4>
+                      <p>محمد الفاتح، سليمان القانوني</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>المساحة</h4>
+                      <p>أكثر من 5 مليون كم²</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>اللغة الرسمية</h4>
+                      <p>التركية العثمانية</p>
+                    </div>
+                  </div>
+                  
+                  <h4>أبرز الإنجازات</h4>
+                  <ul>
+                    <li>فتح القسطنطينية عام 1453</li>
+                    <li>تطوير نظام الحكم الإداري</li>
+                    <li>ازدهار الفنون والعمارة الإسلامية</li>
+                    <li>تأسيس نظام الملة للطوائف الدينية</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- الخط الزمني -->
+              <div id="ottoman-timeline" role="tabpanel" class="tab-panel" hidden>
+                <div class="timeline">
+                  <div class="timeline-event">
+                    <time>1299</time>
+                    <h4>تأسيس الدولة</h4>
+                    <p>تأسيس الدولة العثمانية على يد عثمان الأول</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1453</time>
+                    <h4>فتح القسطنطينية</h4>
+                    <p>فتح محمد الفاتح للقسطنطينية وتحويلها إلى إسطنبول</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1520-1566</time>
+                    <h4>العصر الذهبي</h4>
+                    <p>عهد السلطان سليمان القانوني</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- معرض الصور -->
+              <div id="ottoman-gallery" role="tabpanel" class="tab-panel" hidden>
+                <div class="gallery">
+                  <figure class="gallery-item">
+                    <img src="assets/states/ottoman/topkapi.jpg" alt="قصر طوبكابي" loading="lazy">
+                    <figcaption>قصر طوبكابي - المقر الرئيسي للحكم العثماني</figcaption>
+                  </figure>
+                  <!-- placeholder للمزيد من الصور -->
+                  <div class="gallery-item gallery-item--add">
+                    <span class="add-icon">+</span>
+                    <p>المزيد من الصور قريباً</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal: تفاصيل الدولة الأموية -->
+    <div id="umayyad-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-umayyad" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <article class="country-details">
+          <header>
+            <h2 id="modal-title-umayyad">الدولة الأموية</h2>
+            <p class="period">661 - 750</p>
+          </header>
+
+          <div class="content-tabs">
+            <nav class="tabs-nav" role="tablist">
+              <button role="tab" aria-selected="true" aria-controls="umayyad-about">نبذة تاريخية</button>
+              <button role="tab" aria-selected="false" aria-controls="umayyad-timeline">الخط الزمني</button>
+              <button role="tab" aria-selected="false" aria-controls="umayyad-gallery">معرض الصور</button>
+            </nav>
+
+            <div class="tab-content">
+              <div id="umayyad-about" role="tabpanel" class="tab-panel">
+                <div class="country-info">
+                  <h3>عصر الفتوحات والحضارة</h3>
+                  <p>أول خلافة وراثية في الإسلام، أسسها معاوية بن أبي سفيان عام 661م. امتد نفوذها من الأندلس غرباً إلى حدود الصين شرقاً، وشكلت أكبر دولة في العالم آنذاك.</p>
+                  
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <h4>العاصمة</h4>
+                      <p>دمشق</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>فترة الحكم</h4>
+                      <p>661 - 750</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>مدة الحكم</h4>
+                      <p>89 سنة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>أشهر الحكام</h4>
+                      <p>معاوية، عبد الملك، الوليد</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>المساحة</h4>
+                      <p>أكثر من 15 مليون كم²</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>اللغة الرسمية</h4>
+                      <p>العربية</p>
+                    </div>
+                  </div>
+                  
+                  <h4>أبرز الإنجازات</h4>
+                  <ul>
+                    <li>توحيد العالم الإسلامي تحت حكم مركزي قوي</li>
+                    <li>تعريب الدواوين وسك أول عملة إسلامية خالصة</li>
+                    <li>إنشاء أول أسطول بحري إسلامي</li>
+                    <li>تشييد المساجد والقصور كقبة الصخرة والمسجد الأموي</li>
+                    <li>فتح الأندلس وانتشار الإسلام في أوروبا</li>
+                    <li>تطوير النظام الإداري والمالي</li>
+                  </ul>
+                  
+                  <h4>التراث الثقافي</h4>
+                  <p>ازدهرت الفنون والعمارة الإسلامية، وتطور الخط العربي، وبدأت حركة تدوين الحديث النبوي. كما شهدت دمشق نهضة علمية وثقافية كبيرة كعاصمة للخلافة.</p>
+                </div>
+              </div>
+
+              <div id="umayyad-timeline" role="tabpanel" class="tab-panel" hidden>
+                <div class="timeline">
+                  <div class="timeline-event">
+                    <time>661</time>
+                    <h4>تأسيس الدولة</h4>
+                    <p>تولي معاوية بن أبي سفيان الخلافة في دمشق</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>674-678</time>
+                    <h4>حصار القسطنطينية</h4>
+                    <p>أول محاولة إسلامية لفتح القسطنطينية</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>685-705</time>
+                    <h4>عهد عبد الملك</h4>
+                    <p>تعريب الدواوين وسك النقود الإسلامية</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>691-692</time>
+                    <h4>بناء قبة الصخرة</h4>
+                    <p>إنشاء أول تحفة معمارية إسلامية كبرى</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>705-715</time>
+                    <h4>عهد الوليد</h4>
+                    <p>بناء المسجد الأموي وتوسعة الحرمين</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>711</time>
+                    <h4>فتح الأندلس</h4>
+                    <p>عبور طارق بن زياد إلى شبه الجزيرة الإيبيرية</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>750</time>
+                    <h4>نهاية الدولة</h4>
+                    <p>سقوط دمشق وقيام الدولة العباسية</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="umayyad-gallery" role="tabpanel" class="tab-panel" hidden>
+                <div class="gallery">
+                  <figure class="gallery-item">
+                    <img src="assets/states/umayyad/dome-rock.jpg" alt="قبة الصخرة" loading="lazy">
+                    <figcaption>قبة الصخرة - أول تحفة معمارية إسلامية كبرى (691م)</figcaption>
+                  </figure>
+                  <figure class="gallery-item">
+                    <img src="assets/states/umayyad/umayyad-mosque.jpg" alt="المسجد الأموي" loading="lazy">
+                    <figcaption>المسجد الأموي في دمشق - تحفة معمارية من عهد الوليد</figcaption>
+                  </figure>
+                  <figure class="gallery-item">
+                    <img src="assets/states/umayyad/dinar.jpg" alt="دينار أموي" loading="lazy">
+                    <figcaption>دينار إسلامي من عهد عبد الملك بن مروان</figcaption>
+                  </figure>
+                  <figure class="gallery-item">
+                    <img src="assets/states/umayyad/qasr-amra.jpg" alt="قصر عمرة" loading="lazy">
+                    <figcaption>قصر عمرة - نموذج للفن المعماري الأموي</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal: تفاصيل الدولة العباسية -->
+    <div id="abbasid-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-abbasid" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <article class="country-details">
+          <header>
+            <h2 id="modal-title-abbasid">الدولة العباسية</h2>
+            <p class="period">750 - 1258</p>
+          </header>
+
+          <div class="content-tabs">
+            <nav class="tabs-nav" role="tablist">
+              <button role="tab" aria-selected="true" aria-controls="abbasid-about">نبذة تاريخية</button>
+              <button role="tab" aria-selected="false" aria-controls="abbasid-timeline">الخط الزمني</button>
+              <button role="tab" aria-selected="false" aria-controls="abbasid-gallery">معرض الصور</button>
+            </nav>
+
+            <div class="tab-content">
+              <div id="abbasid-about" role="tabpanel" class="tab-panel">
+                <div class="country-info">
+                  <h3>العصر الذهبي للحضارة الإسلامية</h3>
+                  <p>عصر ذهبي للحضارة الإسلامية، تميز بازدهار العلوم والفنون والترجمة. بلغت أوج قوتها في عهد هارون الرشيد والمأمون. أسست بغداد كعاصمة وأصبحت مركزاً للثقافة العالمية.</p>
+                  
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <h4>العاصمة</h4>
+                      <p>بغداد</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>فترة الحكم</h4>
+                      <p>750 - 1258</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>مدة الحكم</h4>
+                      <p>508 سنة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>أشهر الحكام</h4>
+                      <p>هارون الرشيد، المأمون، المعتصم</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>المساحة</h4>
+                      <p>أكثر من 10 مليون كم²</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>اللغة الرسمية</h4>
+                      <p>العربية</p>
+                    </div>
+                  </div>
+                  
+                  <h4>أبرز الإنجازات</h4>
+                  <ul>
+                    <li>تأسيس بيت الحكمة في بغداد</li>
+                    <li>ازدهار حركة الترجمة من اليونانية والفارسية</li>
+                    <li>تطوير العلوم والرياضيات والطب</li>
+                    <li>إنشاء نظام البريد والطرق</li>
+                    <li>تطوير الفنون والآداب</li>
+                    <li>إنشاء نظام القضاء المستقل</li>
+                  </ul>
+                  
+                  <h4>التراث العلمي</h4>
+                  <p>شهدت الدولة العباسية نهضة علمية غير مسبوقة، حيث ترجمت كتب اليونان والفرس والهنود، وازدهرت علوم الفلك والرياضيات والطب والكيمياء. كما تم تأسيس أول جامعة في العالم الإسلامي.</p>
+                </div>
+              </div>
+
+              <div id="abbasid-timeline" role="tabpanel" class="tab-panel" hidden>
+                <div class="timeline">
+                  <div class="timeline-event">
+                    <time>750</time>
+                    <h4>تأسيس الدولة</h4>
+                    <p>قيام الدولة العباسية بقيادة أبو العباس السفاح</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>762</time>
+                    <h4>بناء بغداد</h4>
+                    <p>تأسيس مدينة بغداد على يد أبو جعفر المنصور</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>786-809</time>
+                    <h4>العصر الذهبي</h4>
+                    <p>عهد هارون الرشيد وازدهار الدولة</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1258</time>
+                    <h4>سقوط بغداد</h4>
+                    <p>نهاية الخلافة العباسية على يد المغول</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="abbasid-gallery" role="tabpanel" class="tab-panel" hidden>
+                <div class="gallery">
+                  <figure class="gallery-item">
+                    <img src="assets/states/abbasid/baghdad.jpg" alt="بغداد القديمة" loading="lazy">
+                    <figcaption>مدينة بغداد - عاصمة الخلافة العباسية</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal: تفاصيل الدولة الفاطمية -->
+    <div id="fatimid-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-fatimid" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <article class="country-details">
+          <header>
+            <h2 id="modal-title-fatimid">الدولة الفاطمية</h2>
+            <p class="period">909 - 1171</p>
+          </header>
+
+          <div class="content-tabs">
+            <nav class="tabs-nav" role="tablist">
+              <button role="tab" aria-selected="true" aria-controls="fatimid-about">نبذة تاريخية</button>
+              <button role="tab" aria-selected="false" aria-controls="fatimid-timeline">الخط الزمني</button>
+              <button role="tab" aria-selected="false" aria-controls="fatimid-gallery">معرض الصور</button>
+            </nav>
+
+            <div class="tab-content">
+              <div id="fatimid-about" role="tabpanel" class="tab-panel">
+                <div class="country-info">
+                  <h3>دولة التسامح والتنوع</h3>
+                  <p>قامت في شمال أفريقيا ثم اتخذت من مصر مركزاً لها. عرفت بازدهار التجارة والفنون وتأسيس جامع الأزهر. تميزت بالتسامح الديني والتنوع الثقافي.</p>
+                  
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <h4>العاصمة</h4>
+                      <p>القاهرة (المهدية سابقاً)</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>فترة الحكم</h4>
+                      <p>909 - 1171</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>مدة الحكم</h4>
+                      <p>262 سنة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>أشهر الحكام</h4>
+                      <p>المعز لدين الله، العزيز بالله</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>المساحة</h4>
+                      <p>أكثر من 4 مليون كم²</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>اللغة الرسمية</h4>
+                      <p>العربية</p>
+                    </div>
+                  </div>
+                  
+                  <h4>أبرز الإنجازات</h4>
+                  <ul>
+                    <li>تأسيس مدينة القاهرة</li>
+                    <li>بناء الجامع الأزهر</li>
+                    <li>ازدهار التجارة البحرية</li>
+                    <li>تطوير الفنون الإسلامية</li>
+                    <li>التسامح مع الأقليات الدينية</li>
+                    <li>تطوير النظام الإداري</li>
+                  </ul>
+                  
+                  <h4>التراث الثقافي</h4>
+                  <p>تميزت الدولة الفاطمية بالتسامح الديني والتنوع الثقافي، حيث عاشت الطوائف المختلفة في سلام. كما ازدهرت الفنون الإسلامية وخاصة العمارة والفنون التطبيقية.</p>
+                </div>
+              </div>
+
+              <div id="fatimid-timeline" role="tabpanel" class="tab-panel" hidden>
+                <div class="timeline">
+                  <div class="timeline-event">
+                    <time>909</time>
+                    <h4>التأسيس</h4>
+                    <p>قيام الدولة الفاطمية في المغرب</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>969</time>
+                    <h4>فتح مصر</h4>
+                    <p>دخول جوهر الصقلي مصر وتأسيس القاهرة</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>972</time>
+                    <h4>بناء الأزهر</h4>
+                    <p>تأسيس الجامع الأزهر</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="fatimid-gallery" role="tabpanel" class="tab-panel" hidden>
+                <div class="gallery">
+                  <figure class="gallery-item">
+                    <img src="assets/states/fatimid/alazhar.jpg" alt="الجامع الأزهر" loading="lazy">
+                    <figcaption>الجامع الأزهر - أقدم جامعة إسلامية</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal: تفاصيل الدولة الأيوبية -->
+    <div id="ayyubid-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-ayyubid" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <article class="country-details">
+          <header>
+            <h2 id="modal-title-ayyubid">الدولة الأيوبية</h2>
+            <p class="period">1171 - 1250</p>
+          </header>
+
+          <div class="content-tabs">
+            <nav class="tabs-nav" role="tablist">
+              <button role="tab" aria-selected="true" aria-controls="ayyubid-about">نبذة تاريخية</button>
+              <button role="tab" aria-selected="false" aria-controls="ayyubid-timeline">الخط الزمني</button>
+              <button role="tab" aria-selected="false" aria-controls="ayyubid-gallery">معرض الصور</button>
+            </nav>
+
+            <div class="tab-content">
+              <div id="ayyubid-about" role="tabpanel" class="tab-panel">
+                <div class="country-info">
+                  <h3>دولة التحرير والوحدة</h3>
+                  <p>أسسها صلاح الدين الأيوبي، اشتهرت بتحرير القدس وتوحيد مصر والشام. اهتمت بالتعليم وبناء المدارس والقلاع، وحققت انتصارات مهمة ضد الصليبيين.</p>
+                  
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <h4>العاصمة</h4>
+                      <p>القاهرة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>فترة الحكم</h4>
+                      <p>1171 - 1250</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>مدة الحكم</h4>
+                      <p>79 سنة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>أشهر الحكام</h4>
+                      <p>صلاح الدين الأيوبي</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>المساحة</h4>
+                      <p>أكثر من 2 مليون كم²</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>اللغة الرسمية</h4>
+                      <p>العربية</p>
+                    </div>
+                  </div>
+                  
+                  <h4>أبرز الإنجازات</h4>
+                  <ul>
+                    <li>تحرير القدس من الصليبيين</li>
+                    <li>توحيد مصر والشام</li>
+                    <li>بناء قلعة صلاح الدين</li>
+                    <li>تطوير النظام التعليمي</li>
+                    <li>إنشاء المدارس والمساجد</li>
+                    <li>تطوير النظام العسكري</li>
+                  </ul>
+                  
+                  <h4>التراث العسكري</h4>
+                  <p>اشتهرت الدولة الأيوبية ببراعتها العسكرية، حيث حقق صلاح الدين انتصارات مهمة ضد الصليبيين، وتميزت بتطوير فنون الحرب والقلاع الدفاعية.</p>
+                </div>
+              </div>
+
+              <div id="ayyubid-timeline" role="tabpanel" class="tab-panel" hidden>
+                <div class="timeline">
+                  <div class="timeline-event">
+                    <time>1171</time>
+                    <h4>تأسيس الدولة</h4>
+                    <p>تولي صلاح الدين الأيوبي حكم مصر</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1187</time>
+                    <h4>تحرير القدس</h4>
+                    <p>تحرير القدس من الصليبيين</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1250</time>
+                    <h4>نهاية الدولة</h4>
+                    <p>انتهاء حكم الأيوبيين وبداية عصر المماليك</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="ayyubid-gallery" role="tabpanel" class="tab-panel" hidden>
+                <div class="gallery">
+                  <figure class="gallery-item">
+                    <img src="assets/states/ayyubid/citadel.jpg" alt="قلعة صلاح الدين" loading="lazy">
+                    <figcaption>قلعة صلاح الدين - القاهرة</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal: تفاصيل دولة المماليك -->
+    <div id="mamluk-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-mamluk" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <article class="country-details">
+          <header>
+            <h2 id="modal-title-mamluk">دولة المماليك</h2>
+            <p class="period">1250 - 1517</p>
+          </header>
+
+          <div class="content-tabs">
+            <nav class="tabs-nav" role="tablist">
+              <button role="tab" aria-selected="true" aria-controls="mamluk-about">نبذة تاريخية</button>
+              <button role="tab" aria-selected="false" aria-controls="mamluk-timeline">الخط الزمني</button>
+              <button role="tab" aria-selected="false" aria-controls="mamluk-gallery">معرض الصور</button>
+            </nav>
+
+            <div class="tab-content">
+              <div id="mamluk-about" role="tabpanel" class="tab-panel">
+                <div class="country-info">
+                  <h3>دولة المماليك العظمى</h3>
+                  <p>حكمت مصر والشام، واشتهرت بهزيمة المغول في معركة عين جالوت. تميزت بالعمارة الفريدة والازدهار الفني والتجاري، وكانت القاهرة في عهدهم من أهم مراكز العالم الإسلامي.</p>
+                  
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <h4>العاصمة</h4>
+                      <p>القاهرة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>فترة الحكم</h4>
+                      <p>1250 - 1517</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>مدة الحكم</h4>
+                      <p>267 سنة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>أشهر الحكام</h4>
+                      <p>بيبرس، قلاوون، الناصر محمد</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>المساحة</h4>
+                      <p>أكثر من 3 مليون كم²</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>اللغة الرسمية</h4>
+                      <p>العربية</p>
+                    </div>
+                  </div>
+                  
+                  <h4>أبرز الإنجازات</h4>
+                  <ul>
+                    <li>هزيمة المغول في معركة عين جالوت</li>
+                    <li>تطوير العمارة الإسلامية</li>
+                    <li>ازدهار التجارة الدولية</li>
+                    <li>تطوير الفنون الإسلامية</li>
+                    <li>إنشاء نظام الحكم المملوكي</li>
+                    <li>تطوير العلوم والفنون</li>
+                  </ul>
+                  
+                  <h4>التراث المعماري</h4>
+                  <p>اشتهرت دولة المماليك بالعمارة الإسلامية المتميزة، حيث بنيت المساجد والمدارس والقلاع بأسلوب فريد. كما ازدهرت الفنون التطبيقية والخط العربي.</p>
+                </div>
+              </div>
+
+              <div id="mamluk-timeline" role="tabpanel" class="tab-panel" hidden>
+                <div class="timeline">
+                  <div class="timeline-event">
+                    <time>1250</time>
+                    <h4>بداية الحكم</h4>
+                    <p>تولي شجرة الدر حكم مصر</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1260</time>
+                    <h4>معركة عين جالوت</h4>
+                    <p>هزيمة المغول في معركة عين جالوت</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1517</time>
+                    <h4>نهاية الدولة</h4>
+                    <p>سقوط دولة المماليك على يد العثمانيين</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="mamluk-gallery" role="tabpanel" class="tab-panel" hidden>
+                <div class="gallery">
+                  <figure class="gallery-item">
+                    <img src="assets/states/mamluk/mosque.jpg" alt="مسجد السلطان حسن" loading="lazy">
+                    <figcaption>مسجد السلطان حسن - نموذج للعمارة المملوكية</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal: تفاصيل الأندلس -->
+    <div id="andalus-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-andalus" hidden>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="إغلاق">✕</button>
+        <article class="country-details">
+          <header>
+            <h2 id="modal-title-andalus">الأندلس</h2>
+            <p class="period">756 - 1492</p>
+          </header>
+
+          <div class="content-tabs">
+            <nav class="tabs-nav" role="tablist">
+              <button role="tab" aria-selected="true" aria-controls="andalus-about">نبذة تاريخية</button>
+              <button role="tab" aria-selected="false" aria-controls="andalus-timeline">الخط الزمني</button>
+              <button role="tab" aria-selected="false" aria-controls="andalus-gallery">معرض الصور</button>
+            </nav>
+
+            <div class="tab-content">
+              <div id="andalus-about" role="tabpanel" class="tab-panel">
+                <div class="country-info">
+                  <h3>أرض التعايش والازدهار</h3>
+                  <p>امتد الحكم الإسلامي في شبه الجزيرة الإيبيرية لأكثر من 700 عام. تميزت بالتعايش بين الديانات والثقافات، وازدهار العلوم والفنون. تركت إرثاً معمارياً وثقافياً غنياً.</p>
+                  
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <h4>العاصمة</h4>
+                      <p>قرطبة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>فترة الحكم</h4>
+                      <p>756 - 1492</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>مدة الحكم</h4>
+                      <p>736 سنة</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>أشهر الحكام</h4>
+                      <p>عبد الرحمن الداخل، عبد الرحمن الناصر</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>المساحة</h4>
+                      <p>أكثر من 500 ألف كم²</p>
+                    </div>
+                    <div class="info-item">
+                      <h4>اللغة الرسمية</h4>
+                      <p>العربية</p>
+                    </div>
+                  </div>
+                  
+                  <h4>أبرز الإنجازات</h4>
+                  <ul>
+                    <li>ازدهار العلوم والفنون</li>
+                    <li>التعايش بين الديانات</li>
+                    <li>تطوير العمارة الإسلامية</li>
+                    <li>تطوير العلوم والطب</li>
+                    <li>ازدهار الأدب والشعر</li>
+                    <li>تطوير الزراعة والري</li>
+                  </ul>
+                  
+                  <h4>التراث الثقافي</h4>
+                  <p>اشتهرت الأندلس بالتعايش السلمي بين المسلمين والمسيحيين واليهود، وازدهرت فيها العلوم والفنون. كما تركت إرثاً معمارياً عظيماً مثل قصر الحمراء ومسجد قرطبة.</p>
+                </div>
+              </div>
+
+              <div id="andalus-timeline" role="tabpanel" class="tab-panel" hidden>
+                <div class="timeline">
+                  <div class="timeline-event">
+                    <time>756</time>
+                    <h4>تأسيس الإمارة</h4>
+                    <p>تأسيس إمارة قرطبة على يد عبد الرحمن الداخل</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>929</time>
+                    <h4>إعلان الخلافة</h4>
+                    <p>إعلان عبد الرحمن الناصر الخلافة في قرطبة</p>
+                  </div>
+                  <div class="timeline-event">
+                    <time>1492</time>
+                    <h4>سقوط غرناطة</h4>
+                    <p>نهاية الحكم الإسلامي في الأندلس</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="andalus-gallery" role="tabpanel" class="tab-panel" hidden>
+                <div class="gallery">
+                  <figure class="gallery-item">
+                    <img src="assets/states/andalus/alhambra.jpg" alt="قصر الحمراء" loading="lazy">
+                    <figcaption>قصر الحمراء - غرناطة</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2025 موقع تاريخ الدول الإسلامية</div>
+      <div class="footer-links">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">اتصل بنا</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/rulers.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/book.js" defer></script>
+    <script src="js/admin.js" defer></script>
+    <script>
+      // Load profile image and name from LocalStorage keys 'userImage' and 'userName'
+      document.addEventListener('DOMContentLoaded', function(){
+        try{
+          var img = document.getElementById('profilePic');
+          if(!img) return;
+          var saved = localStorage.getItem('userImage');
+          var name = localStorage.getItem('userName');
+          if(saved) img.src = saved;
+          if(name) img.title = name;
+        }catch(e){ console.warn(e); }
+      });
+    </script>
+</body>
+</html>
