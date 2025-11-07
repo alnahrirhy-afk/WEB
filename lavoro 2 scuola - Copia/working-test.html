@@ -1,232 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار نهائي - زر المزيد</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/countries.css">
-    <style>
-        .test-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .debug-console {
-            background: #1e1e1e;
-            color: #00ff00;
-            padding: 1rem;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            margin: 1rem 0;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-    </style>
-    <script src="js/checkLogin.js" defer></script>
-</head>
-<body>
-    <div class="test-header">
-        <h1>🔧 اختبار نهائي - زر المزيد</h1>
-        <p>تأكد من عمل الزر بشكل صحيح</p>
-    </div>
-
-    <div class="container">
-        <div class="debug-console" id="debug-console">
-            <div>🚀 بدء تشغيل النظام...</div>
-            <div>📋 انتظار تحميل الصفحة...</div>
-        </div>
-
-        <div class="countries-grid">
-            <!-- الدولة العثمانية -->
-            <article class="country-card" data-country="ottoman">
-                <div class="card-media">
-                    <img src="assets/states/ottoman-empire.svg" alt="شعار الدولة العثمانية" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <h3>الدولة العثمانية</h3>
-                    <p>1299 - 1924</p>
-                    <button class="btn ghost" data-modal="ottoman-details" onclick="testButtonClick(this)">المزيد</button>
-                </div>
-            </article>
-
-            <!-- الدولة الأموية -->
-            <article class="country-card" data-country="umayyad">
-                <div class="card-media">
-                    <img src="assets/states/umayyad.svg" alt="رمز الدولة الأموية" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <h3>الدولة الأموية</h3>
-                    <p>661 - 750</p>
-                    <button class="btn ghost" data-modal="umayyad-details" onclick="testButtonClick(this)">المزيد</button>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <!-- Modal: تفاصيل الدولة العثمانية -->
-    <div id="ottoman-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-ottoman" hidden>
-        <div class="modal-panel">
-            <button class="modal-close" aria-label="إغلاق">✕</button>
-            <article class="country-details">
-                <header>
-                    <h2 id="modal-title-ottoman">الدولة العثمانية</h2>
-                    <p class="period">1299 - 1924</p>
-                </header>
-                <div class="country-info">
-                    <h3>نبذة تاريخية</h3>
-                    <p>تأسست الدولة العثمانية عام 1299 على يد عثمان الأول، وامتدت أراضيها في ثلاث قارات حتى عام 1924. عُرفت بقوتها العسكرية وإنجازاتها المعمارية والثقافية.</p>
-                    
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <h4>العاصمة</h4>
-                            <p>إسطنبول (القسطنطينية سابقاً)</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>فترة الحكم</h4>
-                            <p>1299 - 1924</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>مدة الحكم</h4>
-                            <p>625 سنة</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>أشهر الحكام</h4>
-                            <p>محمد الفاتح، سليمان القانوني</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <!-- Modal: تفاصيل الدولة الأموية -->
-    <div id="umayyad-details" class="modal country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-umayyad" hidden>
-        <div class="modal-panel">
-            <button class="modal-close" aria-label="إغلاق">✕</button>
-            <article class="country-details">
-                <header>
-                    <h2 id="modal-title-umayyad">الدولة الأموية</h2>
-                    <p class="period">661 - 750</p>
-                </header>
-                <div class="country-info">
-                    <h3>عصر الفتوحات والحضارة</h3>
-                    <p>أول خلافة وراثية في الإسلام، أسسها معاوية بن أبي سفيان عام 661م. امتد نفوذها من الأندلس غرباً إلى حدود الصين شرقاً، وشكلت أكبر دولة في العالم آنذاك.</p>
-                    
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <h4>العاصمة</h4>
-                            <p>دمشق</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>فترة الحكم</h4>
-                            <p>661 - 750</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>مدة الحكم</h4>
-                            <p>89 سنة</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>أشهر الحكام</h4>
-                            <p>معاوية، عبد الملك، الوليد</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <script>
-        // دالة لإضافة رسائل إلى وحدة التحكم
-        function addDebugMessage(message) {
-            const console = document.getElementById('debug-console');
-            const div = document.createElement('div');
-            div.textContent = new Date().toLocaleTimeString() + ' - ' + message;
-            console.appendChild(div);
-            console.scrollTop = console.scrollHeight;
-        }
-
-        // دالة لاختبار النقر على الزر
-        function testButtonClick(button) {
-            addDebugMessage('🖱️ تم النقر على الزر: ' + button.textContent);
-            const modalId = button.getAttribute('data-modal');
-            addDebugMessage('🎯 محاولة فتح المودال: ' + modalId);
-            showModal(modalId);
-        }
-
-        // عرض المودال
-        function showModal(id) {
-            addDebugMessage('🔍 البحث عن المودال: ' + id);
-            
-            // إخفاء جميع المودالات أولاً
-            hideAllModals();
-            
-            // البحث عن المودال المطلوب
-            const modal = document.getElementById(id);
-            if (modal) {
-                addDebugMessage('✅ تم العثور على المودال، جاري العرض...');
-                modal.hidden = false;
-                modal.style.display = 'flex';
-                modal.classList.add('modal-active');
-                
-                // منع التمرير في الخلفية
-                document.body.style.overflow = 'hidden';
-                addDebugMessage('🎉 تم عرض المودال بنجاح!');
-            } else {
-                addDebugMessage('❌ لم يتم العثور على المودال: ' + id);
-            }
-        }
-        
-        // إخفاء جميع المودالات
-        function hideAllModals() {
-            addDebugMessage('🔄 إخفاء جميع المودالات...');
-            const allModals = document.querySelectorAll('.modal');
-            allModals.forEach(modal => {
-                modal.hidden = true;
-                modal.style.display = 'none';
-                modal.classList.remove('modal-active');
-            });
-            
-            // إعادة التمرير
-            document.body.style.overflow = '';
-        }
-        
-        // تهيئة النظام
-        document.addEventListener('DOMContentLoaded', function(){
-            addDebugMessage('🚀 تم تحميل الصفحة بنجاح');
-            addDebugMessage('🔧 تهيئة نظام المودالات...');
-            
-            // إضافة معالجات الأحداث
-            document.addEventListener('click', function(e) {
-                // إغلاق المودال عند النقر على زر الإغلاق
-                if (e.target.matches('.modal-close')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    addDebugMessage('❌ تم النقر على زر الإغلاق');
-                    hideAllModals();
-                }
-                
-                // إغلاق المودال عند النقر خارجها
-                if (e.target.classList.contains('modal')) {
-                    addDebugMessage('🖱️ تم النقر خارج المودال');
-                    hideAllModals();
-                }
-            });
-            
-            // إغلاق المودال بمفتاح Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    addDebugMessage('⌨️ تم الضغط على مفتاح Escape');
-                    hideAllModals();
-                }
-            });
-            
-            addDebugMessage('✅ تم تهيئة النظام بنجاح!');
-            addDebugMessage('💡 اضغط على أي زر "المزيد" لاختبار النظام');
-        });
-    </script>
-</body>
-</html>
